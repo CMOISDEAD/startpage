@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { gruvbox } from './Colors';
+// import { gruvbox } from './Colors';
 
 
 export const Main = styled.div``;
@@ -13,22 +13,5 @@ export const Container = styled.div`
 
   > * {
     /* margin: 1rem; */
-  }
-
-  .links-box {
-    > div > .header {
-      text-decoration: underline;
-    }
-
-    > div > ul {
-      list-style: none;
-       > li > a {
-        color: ${gruvbox.green};
-
-        :hover {
-          color: ${gruvbox.purple};
-        }
-      }
-    }
   }
 `;

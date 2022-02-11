@@ -8,4 +8,5 @@ export const gruvbox = {
   yellow: "#d79921",
   purple: "#b16286",
   orange: "#d65d0e",
+  gray: "#928374"
 }
