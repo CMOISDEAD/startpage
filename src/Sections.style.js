@@ -27,6 +27,12 @@ export const Container = styled.div`
         color: ${gruvbox.foreground};
         border: 0;
         border-bottom: 1px solid ${gruvbox.foreground};
+        transition: all .5s ease;
+
+        :active {
+          border: 0 !important;
+          border-bottom: 1px solid ${gruvbox.yellow} !important;
+        }
       }
 
        > li > a {

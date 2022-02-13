@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Main, Container } from './App.style';
 import { WeatherBox } from './WeatherBox';
@@ -7,9 +7,10 @@ import { Section } from './Sections';
 import { listPlaceHolder } from './PlaceHolder'
 
 export const App = () => {
-  const [listLinks, setListLinks] = useState([
-    ...listPlaceHolder
-  ])
+  const Storage = window.localStorage;
+  const [listLinks, setListLinks] = useState(
+    JSON.parse(Storage.getItem('sections'))
+  );
 
   return (
     <Main>
@@ -17,9 +18,9 @@ export const App = () => {
         <WeatherBox />
         <div className="links-box">
           {
-            listLinks.map((obj) => {
+            listLinks.map((obj, i) => {
               return (
-                <Section data={obj} callback={setListLinks} key={obj.id} />
+                <Section data={obj} callback={setListLinks} key={i} />
               )
             })
           }
