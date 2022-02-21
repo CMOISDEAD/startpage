@@ -62,6 +62,9 @@ export const listPlaceHolder = [
       }
     ]
   },
-
-
 ]
+
+export const defaultSettings = {
+  background: 'https://fondosmil.com/fondo/5046.jpg',
+  blur: "10px",
+}

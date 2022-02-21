@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 
 import { Container } from './Sections.style';
-// import { Form } from './Form';
 
-export const Section = ({ data, callback }) => {
+export const Section = ({ data }) => {
   const Storage = window.localStorage;
   const [info, setInfo] = useState({
     id: data.id,
@@ -11,23 +10,27 @@ export const Section = ({ data, callback }) => {
     links: data.links
   })
   const [newLink, setNewLink] = useState({
-    id: info,
+    id: info.id,
     name: '',
     url: ''
   });
 
   useEffect(() => {
     const ctx = JSON.parse(Storage.getItem('sections'));
-    ctx[info.id].links.push({
-      id: newLink.id,
-      name: newLink.name,
-      url: newLink.url
-    });
-    Storage.setItem('sections', JSON.stringify(ctx));
   }, [info])
 
   const handleClick = (e) => {
     e.preventDefault();
+    const ctx = JSON.parse(Storage.getItem('sections'));
+    if (ctx) {
+      ctx[info.id].links.push({
+        id: newLink.id,
+        name: newLink.name,
+        url: newLink.url
+      });
+      Storage.clear('sections');
+      Storage.setItem('sections', JSON.stringify(ctx));
+    }
     setInfo({
       ...info,
       links: [...info.links, newLink],

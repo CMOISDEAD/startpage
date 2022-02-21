@@ -1,32 +1,49 @@
 import { useEffect, useState } from "react";
 
-import { Main, Container } from './App.style';
+import { Box, Main, Container } from './App.style';
 import { WeatherBox } from './WeatherBox';
 import { Quote } from './Quote';
 import { Section } from './Sections';
-import { listPlaceHolder } from './PlaceHolder'
+import { ModalWindow } from './Components/Modal/Modal';
+
+import { listPlaceHolder, defaultSettings } from './cheatsheet';
 
 export const App = () => {
   const Storage = window.localStorage;
-  const [listLinks, setListLinks] = useState(
-    JSON.parse(Storage.getItem('sections'))
-  );
+  const StorageQuery = (ctx) => JSON.parse(Storage.getItem(ctx));
+  const [listLinks, setListLinks] = useState(StorageQuery('sections') || listPlaceHolder);
+  const [settings, setSettings] = useState(StorageQuery('settings') || defaultSettings);
+
+  useEffect(() => {
+    if (!Storage.getItem('sections')) {
+      console.log("Not Found sections")
+      Storage.setItem('sections', JSON.stringify(listPlaceHolder));
+    } else if (!Storage.getItem('settings')) {
+      console.log("Not Found Setting")
+      Storage.setItem('settings', JSON.stringify(defaultSettings));
+    }
+  }, [])
 
   return (
-    <Main>
-      <Container className="container">
-        <WeatherBox />
-        <div className="links-box">
-          {
-            listLinks.map((obj, i) => {
-              return (
-                <Section data={obj} callback={setListLinks} key={i} />
-              )
-            })
-          }
+    <Box background={settings.background}>
+      <Main blur={settings.blur}>
+        <Container className="pt-5">
+          <WeatherBox />
+          <div className="links-box">
+            {
+              listLinks.map((obj, i) => {
+                return (
+                  <Section data={obj} callback={setListLinks} key={i} />
+                )
+              })
+            }
+          </div>
+        </Container>
+        <Quote />
+        <div className="settings">
+          <ModalWindow opt={settings} callback={setSettings} />
         </div>
-      </Container>
-      <Quote />
-    </Main>
+      </Main>
+    </Box>
   );
 }

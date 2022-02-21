@@ -4,7 +4,7 @@ import { Container } from './Quote.style';
 export const Quote = () => {
   return (
     <Container>
-      <q><i> Theres no place like ~ </i></q>
+      <q><i> There's no place like ~ </i></q>
     </Container>
   )
 }
