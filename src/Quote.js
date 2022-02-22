@@ -20,8 +20,7 @@ export const Quote = () => {
   return (
     <Container>
       <blockquote>
-        &ldquo;{quote.q}&rdquo;&mdash;
-        <footer>{quote.a}</footer>
+        &ldquo;{quote.q}&rdquo;&mdash;<span>{quote.a}</span>
       </blockquote>
     </Container>
   )

@@ -25,7 +25,7 @@ export const WeatherBox = () => {
   }, []);
 
   return (
-    <Container className="text-white">
+    <Container className="text-white border border-light rounded">
       <div class="fs-3 text-capitalize fw-bolder">{weather.condition}</div>
       <div class="fst-italic">
         {weather.country} - {weather.name} - {weather.date}

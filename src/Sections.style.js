@@ -6,6 +6,14 @@ export const Container = styled.div`
       text-transform: uppercase;
       color: ${gruvbox.red};
     }
+    
+    .add-button {
+      transition: all .5s ease;
+
+      :hover {
+        color: ${gruvbox.yellow} !important;
+      }
+    }
 
     .add {
       padding-top: 10px;
@@ -33,15 +41,6 @@ export const Container = styled.div`
         :active {
           border: 0 !important;
           border-bottom: 1px solid ${gruvbox.yellow} !important;
-        }
-      }
-
-       > li > a {
-        text-decoration: none;
-        color: ${gruvbox.green};
-
-        :hover {
-          color: ${gruvbox.purple};
         }
       }
     }

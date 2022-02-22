@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { Container } from './Sections.style';
+import { ModalWindow } from './Components/Modal/ModalSection';
 
 export const Section = ({ data }) => {
   const Storage = window.localStorage;
@@ -14,10 +15,6 @@ export const Section = ({ data }) => {
     name: '',
     url: ''
   });
-
-  useEffect(() => {
-    // const ctx = JSON.parse(Storage.getItem('sections'));
-  }, [info])
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -43,17 +40,21 @@ export const Section = ({ data }) => {
       id: info.links.length,
       [e.target.name]: e.target.value
     })
+    console.log(newLink)
   }
 
   return (
     <Container>
       <div key={info.id}>
-        <div className="header fw-bolder"> {info.title}</div>
+        <div className="header fw-bolder text-white">
+          {info.title}
+          <ModalWindow handleChange={handleChange} callback={handleClick} />
+        </div>
         <ul>
           {
             info.links.map((link, i) => {
               return (
-                <li key={i}><a href={link.url}>{link.name}</a></li>
+                <li key={i}><a href={link.url} className="link-primary">{link.name}</a></li>
               )
             })
           }

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-
 // Modal window.
-export const ModalWindow = ({ opt, callback }) => {
+export const ModalWindow = ({ handleChange, callback }) => {
   // UseState Definitions.
   const [show, setShow] = useState(false);
-  const [settings, setSettings] = useState(opt);
+  const [settings, setSettings] = useState({
+    name: "",
+    url: ""
+  });
 
   // Utils.
   const Storage = window.localStorage;
@@ -15,37 +17,27 @@ export const ModalWindow = ({ opt, callback }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSettings({
-      ...settings,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSave = () => {
+  const handleSave = (e) => {
     setShow(false);
-    callback(settings)
-    Storage.setItem('settings', JSON.stringify(settings));
-    console.log(settings);
+    callback(e);
   }
 
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow}>
-        Open
-      </Button>
+      <button className="text-muted add-button btn" onClick={handleShow}>
+        +
+      </button>
 
       <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
-          <Modal.Title className="text-dark">Custom</Modal.Title>
+          <Modal.Title className="text-dark">Add</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
           <form action="" className="text-dark">
-            <h5>Background:</h5>
-            <input id="wallpaper-input" name="background" type="text" onChange={handleChange} />
-            <h5>Blur:</h5>
-            <input id="blur-input" name="blur" type="text" onChange={handleChange} />
+            <h5>Title:</h5>
+            <input id="title-input" name="name" type="text" onChange={handleChange} />
+            <h5>Link:</h5>
+            <input id="link-input" name="url" type="text" onChange={handleChange} />
           </form>
         </Modal.Body>
         <Modal.Footer>

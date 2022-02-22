@@ -26,8 +26,4 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-
-  > * {
-    /* margin: 1rem; */
-  }
 `;
