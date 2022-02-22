@@ -1,11 +1,14 @@
+// Modules Imports.
 import { useEffect, useState } from "react";
 
+// Components Imports.
 import { Box, Main, Container } from './App.style';
 import { WeatherBox } from './WeatherBox';
 import { Quote } from './Quote';
 import { Section } from './Sections';
 import { ModalWindow } from './Components/Modal/Modal';
 
+// Utils.
 import { listPlaceHolder, defaultSettings } from './cheatsheet';
 
 export const App = () => {
@@ -39,8 +42,8 @@ export const App = () => {
             }
           </div>
         </Container>
-        <Quote />
-        <div className="settings">
+        <div className="footer">
+          <Quote />
           <ModalWindow opt={settings} callback={setSettings} />
         </div>
       </Main>

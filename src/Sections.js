@@ -16,7 +16,7 @@ export const Section = ({ data }) => {
   });
 
   useEffect(() => {
-    const ctx = JSON.parse(Storage.getItem('sections'));
+    // const ctx = JSON.parse(Storage.getItem('sections'));
   }, [info])
 
   const handleClick = (e) => {
@@ -48,7 +48,7 @@ export const Section = ({ data }) => {
   return (
     <Container>
       <div key={info.id}>
-        <div className="header"> {info.title}</div>
+        <div className="header fw-bolder"> {info.title}</div>
         <ul>
           {
             info.links.map((link, i) => {
@@ -57,10 +57,12 @@ export const Section = ({ data }) => {
               )
             })
           }
-          <p className="text-muted">Add new link...</p>
-          <li><input type="text" name='name' placeholder='name' onChange={handleChange} /></li>
-          <li><input type="text" name='url' placeholder='url' onChange={handleChange} /></li>
-          <li className='add'><a href="/" className='add' onClick={handleClick}>+ Add</a></li>
+          {/* <div class="form"> */}
+          {/*   <p className="text-muted">Add new link...</p> */}
+          {/*   <li><input type="text" name='name' placeholder='name' onChange={handleChange} /></li> */}
+          {/*   <li><input type="text" name='url' placeholder='url' onChange={handleChange} /></li> */}
+          {/*   <li className='add'><a href="/" className='add' onClick={handleClick}>+ Add</a></li> */}
+          {/* </div> */}
         </ul>
       </div>
     </Container >

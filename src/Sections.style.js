@@ -3,7 +3,8 @@ import { gruvbox } from "./Colors";
 
 export const Container = styled.div`
     > div > .header {
-      text-decoration: underline;
+      text-transform: uppercase;
+      color: ${gruvbox.red};
     }
 
     .add {
@@ -36,6 +37,7 @@ export const Container = styled.div`
       }
 
        > li > a {
+        text-decoration: none;
         color: ${gruvbox.green};
 
         :hover {

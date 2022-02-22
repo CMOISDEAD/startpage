@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import moment from "moment";
+
 import { Container } from './WeatherBox.style'
 
 export const WeatherBox = () => {
@@ -12,7 +14,8 @@ export const WeatherBox = () => {
           const main = {
             country: data.location.country,
             name: data.location.name,
-            condition: data.current.condition.text
+            condition: data.current.condition.text,
+            date: moment().format('dddd'),
           }
           setWeather(main);
         })
@@ -22,10 +25,11 @@ export const WeatherBox = () => {
   }, []);
 
   return (
-    <Container>
-      {weather.country}/{weather.name}/10 Feb
-      <br />
-      {weather.condition}
+    <Container className="text-white">
+      <div class="fs-3 text-capitalize fw-bolder">{weather.condition}</div>
+      <div class="fst-italic">
+        {weather.country} - {weather.name} - {weather.date}
+      </div>
     </Container>
   )
 }

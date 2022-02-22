@@ -32,7 +32,7 @@ export const ModalWindow = ({ opt, callback }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-light" onClick={handleShow}>
         Open
       </Button>
 
@@ -40,9 +40,11 @@ export const ModalWindow = ({ opt, callback }) => {
         <Modal.Header closeButton>
           <Modal.Title>Custom</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-center">
           <form action="">
+            <h5>Background:</h5>
             <input id="wallpaper-input" name="background" type="text" onChange={handleChange} />
+            <h5>Blur:</h5>
             <input id="blur-input" name="blur" type="text" onChange={handleChange} />
           </form>
         </Modal.Body>
