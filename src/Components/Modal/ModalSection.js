@@ -1,17 +1,11 @@
-import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 // Modal window.
 export const ModalWindow = ({ handleChange, callback }) => {
   // UseState Definitions.
   const [show, setShow] = useState(false);
-  const [settings, setSettings] = useState({
-    name: "",
-    url: ""
-  });
 
   // Utils.
-  const Storage = window.localStorage;
 
   // Handlers functions.
   const handleClose = () => setShow(false);
