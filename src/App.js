@@ -18,12 +18,12 @@ export const App = () => {
   const [settings, setSettings] = useState(StorageQuery('settings') || defaultSettings);
 
   useEffect(() => {
-    if (!Storage.getItem('sections')) {
+    if (!window.localStorage.getItem('sections')) {
       console.log("Not Found sections")
-      Storage.setItem('sections', JSON.stringify(listPlaceHolder));
-    } else if (!Storage.getItem('settings')) {
+      window.localStorage.setItem('sections', JSON.stringify(listPlaceHolder));
+    } else if (!window.localStorage.getItem('settings')) {
       console.log("Not Found Setting")
-      Storage.setItem('settings', JSON.stringify(defaultSettings));
+      window.localStorage.setItem('settings', JSON.stringify(defaultSettings));
     }
   }, [])
 
