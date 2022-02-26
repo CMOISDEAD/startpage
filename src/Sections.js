@@ -43,6 +43,11 @@ export const Section = ({ data }) => {
     console.log(newLink)
   }
 
+  const handleRemove = (e) => {
+    e.preventDefault();
+    // TODO: import ctx and filer the item to remove.
+  }
+
   return (
     <Container>
       <div key={info.id}>
@@ -54,17 +59,18 @@ export const Section = ({ data }) => {
           {
             info.links.map((link, i) => {
               return (
-                <li key={i}><a href={link.url} className="link-primary">{link.name}</a></li>
+                <li key={i}>
+                  <a href={link.url} className="link-primary">
+                    {link.name}
+                  </a>
+                  <button className="btn text-white" name={link.name} id={link.url} onClick={handleRemove}>
+                    x
+                  </button>
+              </li>
               )
             })
           }
-          {/* <div class="form"> */}
-          {/*   <p className="text-muted">Add new link...</p> */}
-          {/*   <li><input type="text" name='name' placeholder='name' onChange={handleChange} /></li> */}
-          {/*   <li><input type="text" name='url' placeholder='url' onChange={handleChange} /></li> */}
-          {/*   <li className='add'><a href="/" className='add' onClick={handleClick}>+ Add</a></li> */}
-          {/* </div> */}
-        </ul>
+       </ul>
       </div>
     </Container >
   )

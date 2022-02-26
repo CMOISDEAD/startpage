@@ -18,7 +18,7 @@ export const Quote = () => {
   }, [])
 
   return (
-    <Container>
+    <Container className="pt-5">
       <blockquote>
         &ldquo;{quote.q}&rdquo;&mdash;<span>{quote.a}</span>
       </blockquote>

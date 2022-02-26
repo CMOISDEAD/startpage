@@ -26,8 +26,9 @@ export const WeatherBox = () => {
 
   return (
     <Container className="text-white border border-light rounded">
-      <div class="fs-3 text-capitalize fw-bolder">{weather.condition}</div>
-      <div class="fst-italic">
+      <div className="fs-1 fw-bolder">{moment().format('h:mm:ss a')}</div>
+     <div className="fs-5 text-capitalize fw-bolder">{weather.condition}</div>
+      <div className="fs-6 fst-italic">
         {weather.country} - {weather.name} - {weather.date}
       </div>
     </Container>

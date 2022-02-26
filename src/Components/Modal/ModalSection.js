@@ -20,7 +20,7 @@ export const ModalWindow = ({ handleChange, callback }) => {
   return (
     <>
       <button className="text-muted add-button btn" onClick={handleShow}>
-        +
+        <i class="bi bi-plus-circle-fill"></i>
       </button>
 
       <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>

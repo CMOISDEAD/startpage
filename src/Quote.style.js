@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { gruvbox } from './Colors';
+// import { gruvbox } from './Colors';
 
 export const Container = styled.div`
-  color: ${gruvbox.blue};
+  max-width: 20vw;
+  color: white;
   text-align: center;
   font-size: 1.2rem;
-  quotes: "«" "»";
 `;

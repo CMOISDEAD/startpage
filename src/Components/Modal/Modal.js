@@ -33,7 +33,7 @@ export const ModalWindow = ({ opt, callback }) => {
   return (
     <>
       <Button variant="outline-light" onClick={handleShow}>
-        Open
+        <i className="bi bi-gear-fill"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
