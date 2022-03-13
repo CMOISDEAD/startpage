@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { Container } from './Quote.style';
+import { Container } from "./Quote.style";
 
-import { quoteExample } from './cheatsheet';
+import { quoteExample } from "./cheatsheet";
 
 // Api key: https://zenquotes.io/api/random
 export const Quote = () => {
@@ -10,12 +10,13 @@ export const Quote = () => {
 
   useEffect(() => {
     fetch("https://zenquotes.io/api/random")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data) => {
         const ctx = data[0];
         setQuote(ctx);
-      }).catch(err => console.error(err))
-  }, [])
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <Container className="pt-5">
@@ -23,6 +24,5 @@ export const Quote = () => {
         &ldquo;{quote.q}&rdquo;&mdash;<span>{quote.a}</span>
       </blockquote>
     </Container>
-  )
-}
-
+  );
+};

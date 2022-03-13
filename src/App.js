@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // Components Imports.
-import { Box, Main, Container, Option } from "./App.style";
+import { Box, Main, Container } from "./App.style";
 import { WeatherBox } from "./WeatherBox";
 import { Quote } from "./Quote";
 import { Section } from "./Sections";
