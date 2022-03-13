@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-
 // Modal window.
 export const ModalWindow = ({ opt, callback }) => {
   // UseState Definitions.
@@ -19,16 +18,16 @@ export const ModalWindow = ({ opt, callback }) => {
     e.preventDefault();
     setSettings({
       ...settings,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSave = () => {
     setShow(false);
-    callback(settings)
-    Storage.setItem('settings', JSON.stringify(settings));
+    callback(settings);
+    Storage.setItem("settings", JSON.stringify(settings));
     console.log(settings);
-  }
+  };
 
   return (
     <>
@@ -36,16 +35,32 @@ export const ModalWindow = ({ opt, callback }) => {
         <i className="bi bi-gear-fill"></i>
       </Button>
 
-      <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title className="text-dark">Custom</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
           <form action="" className="text-dark">
             <h5>Background:</h5>
-            <input id="wallpaper-input" name="background" type="text" onChange={handleChange} />
+            <input
+              id="wallpaper-input"
+              name="background"
+              type="text"
+              onChange={handleChange}
+            />
             <h5>Blur:</h5>
-            <input id="blur-input" name="blur" type="text" onChange={handleChange} />
+            <input
+              id="blur-input"
+              name="blur"
+              type="text"
+              onChange={handleChange}
+            />
           </form>
         </Modal.Body>
         <Modal.Footer>
@@ -58,5 +73,5 @@ export const ModalWindow = ({ opt, callback }) => {
         </Modal.Footer>
       </Modal>
     </>
-  )
-}
+  );
+};
